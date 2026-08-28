@@ -8,9 +8,7 @@ body{
 }
 
 body{
-
-  font-family:system-ui,-apple-system,BlinkMacSystemFont,"SF Pro Text",
-              "Segoe UI","Helvetica Neue",Roboto,sans-serif;
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"SF Pro Text",  "Segoe UI","Helvetica Neue",Roboto,sans-serif;
   font-size:11px;
   line-height:1.35;
   color:var(--ink);
@@ -18,12 +16,14 @@ body{
   text-rendering:optimizeLegibility;
   user-select:none;
   cursor:default;
-
   position:relative;
   border-radius:var(--r-win);
   overflow:hidden;
   display:flex; flex-direction:column;
   box-shadow:inset 0 0 0 1px rgba(255,255,255,.055);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 body::before{

@@ -1,14 +1,8 @@
 <div align="center">
 
-<br>
-
 # 🔔 Maktab Qo‘ng‘irog‘i
 
 ### Maktab signallarini boshqaruvchi ish stoli dasturi
-
-Jadval bo‘yicha o‘zi chaladi · Kuchaytirgichga faqat o‘z ovozini yuboradi · Kun bo‘yi ishlaydi
-
-<br>
 
 ![Linux](https://img.shields.io/badge/Linux-✓-2ea44f?style=for-the-badge&logo=linux&logoColor=white)
 ![Windows](https://img.shields.io/badge/Windows-✓-2ea44f?style=for-the-badge&logo=windows&logoColor=white)
@@ -17,19 +11,6 @@ Jadval bo‘yicha o‘zi chaladi · Kuchaytirgichga faqat o‘z ovozini yuboradi
 ![Rust](https://img.shields.io/badge/Rust-Tauri_v2-DEA584?style=for-the-badge&logo=rust&logoColor=black)
 ![SQLite](https://img.shields.io/badge/Baza-24_KB-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
 ![CPU](https://img.shields.io/badge/Protsessor-0,5%25-38e2a8?style=for-the-badge)
-
-<br>
-
-</div>
-
----
-
-<div align="center">
-
-## 🎯 Bir qarashda
-
-<br>
-
 </div>
 
 <table width="100%">
@@ -43,8 +24,6 @@ Jadval bo‘yicha o‘zi chaladi · Kuchaytirgichga faqat o‘z ovozini yuboradi
 Istalgancha vaqt.
 Har biriga hafta kunlari
 alohida belgilanadi.
-
-<img src=".github/assets/spacer.png" width="400" height="1">
 </td>
 <td width="25%" align="center">
 
@@ -55,8 +34,6 @@ alohida belgilanadi.
 Signal kuchaytirgichga,
 kompyuter ovozi esa
 o‘z dinamigida qoladi.
-
-<img src=".github/assets/spacer.png" width="400" height="1">
 </td>
 <td width="25%" align="center">
 
@@ -67,8 +44,6 @@ o‘z dinamigida qoladi.
 Uyquni bloklaydi,
 qulflangan ekranda ham
 o‘z vaqtida chalinadi.
-
-<img src=".github/assets/spacer.png" width="400" height="1">
 </td>
 <td width="25%" align="center">
 
@@ -79,8 +54,6 @@ o‘z vaqtida chalinadi.
 Bo‘sh turganda 0,5 %
 protsessor, diskka
 umuman yozmaydi.
-
-<img src=".github/assets/spacer.png" width="400" height="1">
 </td>
 </tr>
 </table>
@@ -88,13 +61,6 @@ umuman yozmaydi.
 ---
 
 <div align="center">
-
-## 🔊 Ovoz qayerga boradi
-
-Kuchaytirgich kompyuterga Bluetooth orqali ulanadi.
-Dastur ovoz oqimlarini shunday taqsimlaydi:
-
-<br>
 
 ```mermaid
 %%{init: {'flowchart': {'wrappingWidth': 600}}}%%
@@ -109,28 +75,17 @@ flowchart LR
     X["🚨 Xavf signali⠀"] --> KU
     KU --> MK["🏫 Butun maktab"]
 
-    style IC fill:#16213e,stroke:#60b2ff,stroke-width:2px,color:#fff
-    style AD fill:#16213e,stroke:#60b2ff,color:#fff
-    style KU fill:#14281f,stroke:#38e2a8,stroke-width:3px,color:#fff
-    style MK fill:#14281f,stroke:#38e2a8,stroke-width:2px,color:#fff
+    style IC fill:yellow, stroke:#38e2a8, stroke-width:2px,color:#fff
+    style AD fill:pink, stroke:#60b2ff, color:#fff
+    style KU fill:yellow, stroke:#38e2a8, stroke-width:3px,color:#fff
+    style MK fill:pink ,stroke:#38e2a8, stroke-width:2px,color:#fff
 ```
-
-<br>
-
-Bluetooth ulanishi hech qachon uzilmaydi — dastur unga tegmaydi,
-u operatsion tizimning o‘z ishi.
-
-<br>
 
 </div>
 
 ---
 
 <div align="center">
-
-## ⚙️ Signal qanday chalinadi
-
-<br>
 
 ```mermaid
 %%{init: {'flowchart': {'wrappingWidth': 600}}}%%
@@ -139,32 +94,22 @@ flowchart TD
     B -->|yo‘q| A
     B -->|ha| C{"Bugun shu kunmi?"}
     C -->|yo‘q| A
-    C -->|ha| D["⠀⠀⠀⠀⠀⠀🎵 Ovoz<br/>ochiladi⠀⠀⠀⠀⠀⠀⠀"]
+    C -->|ha| D["🎵 Ovoz ochiladi⠀⠀"]
     D --> E["➡️ Kuchaytirgichga<br/>yo‘naltiriladi"]
-    E --> F["⠀⠀⠀🔊 Ovoz to‘liq<br/>ochiladi⠀⠀⠀⠀"]
+    E --> F["🔊 Ovoz ochiladi"]
     F --> G(["✅ Signal yangraydi"])
-    G --> H["⠀⏹️ Oqim yopiladi<br/>kuchaytirgich jim⠀⠀"]
+    G --> H["⏹️ Oqim yopiladi"]
     H --> A
-
-    style A fill:#1a1535,stroke:#7c4dff,stroke-width:2px,color:#fff
-    style D fill:#14281f,stroke:#38e2a8,color:#fff
-    style G fill:#14281f,stroke:#38e2a8,stroke-width:3px,color:#fff
-    style H fill:#2a2015,stroke:#ffc44d,color:#fff
+    style A fill:yellow, stroke:#38e2a8, stroke-width:1px, color:#fff
+    style D fill:yellow, stroke:#38e2a8, color:#fff
+    style G fill:yellow, stroke:#38e2a8, stroke-width:1px, color:#fff
+    style H fill:yellow, stroke:#38e2a8, color:#fff
 ```
-
-<br>
-
 </div>
 
 ---
 
 <div align="center">
-
-## 📆 Maktab kuni
-
-Jadvalga qo‘yilgan vaqtlar kun davomida shunday taqsimlanadi
-
-<br>
 
 ```mermaid
 gantt
@@ -184,25 +129,26 @@ gantt
     6-dars      :done, 13:55, 45m
     7-dars      :done, 14:50, 45m
 ```
-
-<br>
-
-Har bir dars boshi va oxiri — alohida qo‘ng‘iroq.
-Hafta kunlari har biriga alohida belgilanadi.
-
-<br>
-
 </div>
 
 ---
 
 <div align="center">
 
-## 🖥️ Interfeys
-
-<br>
-
+```mermaid
+%%{init: {'flowchart': {'wrappingWidth': 600}}}%%
+flowchart LR
+    O(["🔴 Tizim o‘chirildi"]) --> A["⠀    Jadval to‘xtaydi⠀ ⠀⠀"]
+    O --> B["Kompyuter yoqilganda<br/>dastur ishga tushmaydi"]
+    O --> C["⠀⠀Uyqu blok  olinadi⠀⠀"]
+    O --> D["⠀Kompyuter odatdagi<br/>ovoz holatiga qaytadi⠀"]
+    O --> E["Jadval bazada saqlanadi"]
+    style O fill:yellow, stroke:#38e2a8, stroke-width:1px,color:#fff
+    style E fill:orange, stroke:pink, color:#fff
+```
 </div>
+
+---
 
 <table width="100%">
 <tr>
@@ -213,8 +159,6 @@ Hafta kunlari har biriga alohida belgilanadi.
 Chap tomonda qo‘ng‘iroqlar ro‘yxati.
 Keyingi signalgacha qolgan vaqt doim ko‘rinib turadi.
 
-Har bir qatorni yoqib-o‘chirish mumkin —
-o‘chirilgan qo‘ng‘iroq jadvalda qoladi, lekin chalinmaydi.
 
 <img src=".github/assets/spacer.png" width="800" height="1">
 </td>
@@ -223,10 +167,6 @@ o‘chirilgan qo‘ng‘iroq jadvalda qoladi, lekin chalinmaydi.
 ### 🕐 Vaqt tanlash
 
 Soat va daqiqa sichqoncha g‘ildiragi bilan aylantiriladi.
-
-Alohida oyna ochilmaydi —
-o‘zgarish darhol jadvalda ko‘rinadi.
-
 <img src=".github/assets/spacer.png" width="800" height="1">
 </td>
 </tr>
@@ -237,9 +177,6 @@ o‘zgarish darhol jadvalda ko‘rinadi.
 
 Tahrirlash qismi qulflangan turadi.
 Administrator qulfni ochib vaqtni o‘zgartiradi.
-
-Boshqa qatorga o‘tilsa eskisi yana qulflanadi.
-
 </td>
 <td width="50%" align="center">
 
@@ -249,49 +186,11 @@ Boshqa qatorga o‘tilsa eskisi yana qulflanadi.
 **Madhiya** — to‘liq yangraydi
 **Xavf signali** — takrorlanadi
 
-Bir vaqtda faqat bittasi chalinadi.
-
 </td>
 </tr>
 </table>
 
-<div align="center">
-
-<br>
-
-Yuqori o‘ng burchakda kuchaytirgich holati, yonida sozlamalar tugmasi.
-Sozlamalarda til, kuchaytirgich, ovoz balandligi va tizim tugmasi joylashgan.
-
-<br>
-
-</div>
-
 ---
-
-<div align="center">
-
-# 🧭 Turli vaziyatlarda
-
-Har bir holat uchun dastur nima qilishini ko‘ring
-
-<br>
-
-</div>
-
----
-
-<div align="center">
-
-## 🕐 Kompyuter soati adashib qolsa
-
-Dastur ikkita soatni solishtirib turadi: **monoton soat** — u hech qachon
-orqaga qaytmaydi, va **devor soati** — foydalanuvchi ko‘radigan vaqt.
-Ular orasidagi farq katta bo‘lsa, demak soat sakragan.
-
-<br>
-
-</div>
-
 <table width="100%">
 <tr>
 <th width="50%" align="center">Vaziyat<img src=".github/assets/spacer.png" width="800" height="1"></th>
@@ -323,29 +222,7 @@ Ular orasidagi farq katta bo‘lsa, demak soat sakragan.
 </tr>
 </table>
 
-<div align="center">
-
-<br>
-
-Maktabda 3 soat kechikkan qo‘ng‘iroq darsni chalkashtiradi —
-shuning uchun o‘tib ketgan signal ataylab chalinmaydi.
-
-<br>
-
-</div>
-
 ---
-
-<div align="center">
-
-## 😴 Kompyuter uyquga ketsa
-
-Uxlagan kompyuterda vaqt hisoblagichi ham to‘xtaydi.
-Shuning uchun tizim yoqilgan bo‘lsa dastur uyquni bloklaydi.
-
-<br>
-
-</div>
 
 <table width="100%">
 <tr>
@@ -370,92 +247,7 @@ Shuning uchun tizim yoqilgan bo‘lsa dastur uyquni bloklaydi.
 </tr>
 </table>
 
-<div align="center">
-
-<br>
-
-Blok tizim o‘chirilganda o‘zi olib tashlanadi.
-
-<br>
-
-</div>
-
 ---
-
-<div align="center">
-
-## 🔐 Ekran qulflangan bo‘lsa
-
-<br>
-
-Qulf faqat ekranga tegishli — dastur ishlashda davom etadi.
-
-Sinovdan o‘tkazilgan: seans qulflangan holatda qo‘ng‘iroq
-**0 soniya kechikish bilan** chalindi va kuchaytirgichga bordi.
-
-<br>
-
-</div>
-
----
-
-<div align="center">
-
-## 🔴 Tizim o‘chirilsa
-
-Sozlamalardagi tugma butun tizimni to‘xtatadi
-
-<br>
-
-```mermaid
-%%{init: {'flowchart': {'wrappingWidth': 600}}}%%
-flowchart LR
-    O(["🔴 Tizim o‘chirildi"]) --> A["⠀⠀⠀⠀⠀⠀⠀⠀⠀Jadval<br/>to‘xtaydi⠀⠀⠀⠀⠀⠀⠀⠀⠀"]
-    O --> B["Kompyuter yoqilganda<br/>dastur ishga tushmaydi"]
-    O --> C["⠀⠀⠀⠀⠀⠀⠀Uyqu bloki<br/>olinadi⠀⠀⠀⠀⠀⠀⠀⠀"]
-    O --> D["⠀Kompyuter odatdagi<br/>ovoz holatiga qaytadi⠀"]
-    O --> E["⠀⠀⠀⠀⠀Jadval bazada<br/>saqlanib qoladi⠀⠀⠀⠀⠀"]
-
-    style O fill:#3a1520,stroke:#ff5470,stroke-width:3px,color:#fff
-    style E fill:#14281f,stroke:#38e2a8,color:#fff
-```
-
-<br>
-
-Qayta yoqilganda hammasi tiklanadi — jadval o‘z joyida turadi.
-
-<br>
-
-</div>
-
----
-
-<div align="center">
-
-## 🔁 Dastur qayta ishga tushsa
-
-<br>
-
-Kompyuter kechqurun o‘chirilib, ertasi kuni yoqilsa —
-dastur toza holatda boshlanadi va bugungi o‘tib ketgan
-signallarni belgilab qo‘yadi.
-
-Ya‘ni bir qo‘ng‘iroq **ikki marta chalinmaydi**,
-o‘tib ketgani esa kech chalinmaydi.
-
-<br>
-
-</div>
-
----
-
-<div align="center">
-
-## 🌐 Uch tilda
-
-<br>
-
-</div>
 
 <table width="100%">
 <tr>
@@ -466,8 +258,6 @@ o‘tib ketgani esa kech chalinmaydi.
 **O‘zbek**
 
 standart til
-
-<img src=".github/assets/spacer.png" width="528" height="1">
 </td>
 <td width="34%" align="center">
 
@@ -477,7 +267,6 @@ standart til
 
 to‘liq tarjima
 
-<img src=".github/assets/spacer.png" width="544" height="1">
 </td>
 <td width="33%" align="center">
 
@@ -492,28 +281,7 @@ to‘liq tarjima
 </tr>
 </table>
 
-<div align="center">
-
-<br>
-
-Interfeys ham, dastur xabarlari ham tarjima qilingan.
-Tanlangan til saqlanadi va keyingi ochilishda tiklanadi.
-
-<br>
-
-</div>
-
 ---
-
-<div align="center">
-
-## 📥 O‘rnatish
-
-Tayyor fayllar **[Releases](../../releases)** sahifasida
-
-<br>
-
-</div>
 
 <table width="100%">
 <tr>
@@ -527,15 +295,7 @@ Tayyor fayllar **[Releases](../../releases)** sahifasida
 <tr><td align="center">🐧 &nbsp; <b>Boshqa Linux</b></td><td align="center"><code>.AppImage</code></td></tr>
 </table>
 
-<div align="center">
-
-<br>
-
-### Birinchi ishga tushirish
-
-<br>
-
-</div>
+---
 
 <table width="100%">
 <tr>
@@ -545,8 +305,6 @@ Tayyor fayllar **[Releases](../../releases)** sahifasida
 
 Kuchaytirgichni kompyuterga
 Bluetooth orqali ulang
-
-*operatsion tizim orqali*
 
 <img src=".github/assets/spacer.png" width="400" height="1">
 </td>
@@ -583,28 +341,7 @@ belgilang
 </tr>
 </table>
 
-<div align="center">
-
-<br>
-
-Shundan keyin kompyuter yoqilganda dastur **o‘zi ishga tushadi**.
-Administrator huquqi talab qilinmaydi.
-
-<br>
-
-</div>
-
 ---
-
-<div align="center">
-
-## 📊 Resurs sarfi
-
-Dastur maktab kompyuterida kun bo‘yi ishlaydi — har bir ko‘rsatkich o‘lchandi
-
-<br>
-
-</div>
 
 <table width="100%">
 <tr>
@@ -618,15 +355,7 @@ Dastur maktab kompyuterida kun bo‘yi ishlaydi — har bir ko‘rsatkich o‘lc
 <tr><td align="center">Bir kunlik protsessor vaqti</td><td align="center"><b>~8 daqiqa</b></td></tr>
 </table>
 
-<div align="center">
-
-<br>
-
-### Bir kunda protsessor nima bilan band
-
-<br>
-
-</div>
+---
 
 <table width="100%">
 <tr>
@@ -651,37 +380,11 @@ Dastur maktab kompyuterida kun bo‘yi ishlaydi — har bir ko‘rsatkich o‘lc
 </tr>
 </table>
 
-<div align="center">
-
-<br>
-
-Jami 515 soniya — 20 soatlik kunning **0,7 %** i.
-Qolgan vaqtda protsessor butunlay bo‘sh turadi.
-
-<br>
-
-</div>
-
 ---
-
-<div align="center">
-
-## 💾 Baza kundan-kunga o‘smaydi
-
-Chalingan qo‘ng‘iroqlar bazaga yozilmaydi.
-«Chalindi» belgisi xotirada turadi va har kuni yarim tunda tozalanadi.
-
-<br>
-
-Ketma-ket uchta qo‘ng‘iroq chaldirib tekshirildi:
-
-<br>
-
-</div>
 
 <table width="100%">
 <tr>
-<th width="34%" align="center"><img src=".github/assets/spacer.png" width="544" height="1"></th>
+<th width="34%" align="center">Tizim</th>
 <th width="33%" align="center">Chalishdan avval<img src=".github/assets/spacer.png" width="528" height="1"></th>
 <th width="33%" align="center">Uch marta chalgach<img src=".github/assets/spacer.png" width="528" height="1"></th>
 </tr>
@@ -697,34 +400,7 @@ Ketma-ket uchta qo‘ng‘iroq chaldirib tekshirildi:
 </tr>
 </table>
 
-<div align="center">
-
-<br>
-
-Barmoq izi bir xil — birorta bayt ham o‘zgarmadi.
-
-Jadval tahrirlanganda qatorlar **joyida yangilanadi**: mavjud qo‘ng‘iroq
-vaqti o‘zgarsa yangi yozuv yaratilmaydi. 730 kunlik foydalanish
-modellanganda baza o‘sha 24 KB da qoldi.
-
-Jurnal fayllari umuman yozilmaydi.
-
-<br>
-
-</div>
-
 ---
-
-<div align="center">
-
-## 💻 Platformalar
-
-Jadval, ovoz, interfeys, avtostart va uyqu bloki uch tizimda bir xil ishlaydi.
-Ichki usul esa har birida o‘zicha:
-
-<br>
-
-</div>
 
 <table width="100%">
 <tr>
@@ -748,29 +424,3 @@ Ichki usul esa har birida o‘zicha:
 <td align="center">IOKit</td>
 </tr>
 </table>
-
-<div align="center">
-
-<br>
-
-Linux‘da ovoz oqimi bir qurilmadan boshqasiga ko‘chiriladi.
-Windows va macOS‘da signal to‘g‘ridan-to‘g‘ri kuchaytirgichda ochiladi,
-tizimning standart chiqishi esa ichki dinamikda qoladi.
-
-**Natija uchalasida bir xil.**
-
-<br>
-
-Linux‘da to‘liq sinovdan o‘tgan. Windows va macOS kodi har bir
-o‘zgarishda o‘z tizimlarida tekshiriladi, lekin haqiqiy uskunada
-hali ishlatilmagan.
-
-<br><br>
-
-**Rust · Tauri v2 · SQLite · rodio**
-
-<sub>Node.js ishlatilmaydi</sub>
-
-<br>
-
-</div>
