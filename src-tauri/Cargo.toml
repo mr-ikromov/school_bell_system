@@ -1,0 +1,39 @@
+[package]
+name = "bell"
+version = "0.1.0"
+description = "Maktablar uchun avtomatik qo'ng'iroq tizimi"
+authors = ["you"]
+license = ""
+repository = ""
+edition = "2021"
+rust-version = "1.82"
+
+[lib]
+name = "bell_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2.6.3", features = [] }
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+log = "0.4"
+tauri = { version = "2.11.3", features = ["tray-icon"] }
+rusqlite = { version = "0.40.2", default-features = false, features = ["bundled"] }
+chrono = { version = "0.4.45", default-features = false, features = ["clock", "std"] }
+tauri-plugin-dialog = "2.7.2"
+tauri-plugin-autostart = "2.5.1"
+tauri-plugin-single-instance = "2.4.3"
+rodio = { version = "0.21.1", default-features = false, features = ["playback", "symphonia-mp3", "symphonia-wav", "symphonia-vorbis", "symphonia-flac"] }
+
+[target.'cfg(target_os = "windows")'.dependencies]
+windows = { version = "0.62.2", features = [
+    "Win32_Foundation",
+    "Win32_Media_Audio",
+    "Win32_System_Com",
+    "Win32_System_Com_StructuredStorage",
+    "Win32_System_Variant",
+    "Win32_System_Power",
+    "Win32_Devices_FunctionDiscovery",
+    "Win32_UI_Shell_PropertiesSystem",
+] }

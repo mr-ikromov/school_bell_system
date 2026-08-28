@@ -1,0 +1,39 @@
+:root{
+
+  --bg-app:       #0a0618;
+  --card-1:       #150e33;
+  --card-2:       #0f0a24;
+  --card-3:       #1b1240;
+  --stroke:       rgba(255,255,255,.065);
+  --stroke-soft:  rgba(255,255,255,.035);
+
+  --violet:       #7c4dff;
+  --violet-2:     #a06bff;
+  --violet-3:     #c9a7ff;
+  --indigo:       #4c2fd6;
+  --glow:         rgba(124,77,255,.55);
+
+  --ok:           #38e2a8;
+  --warn:         #ffc44d;
+  --danger:       #ff5470;
+  --gold:         #ffd479;
+
+  --ink:          #f2effd;
+  --ink-2:        #b6adda;
+  --ink-3:        #7b719f;
+  --ink-4:        #564d78;
+
+  --r-win:        12px;
+  --r-card:       11px;
+  --r-md:         8px;
+  --r-sm:         6px;
+  --tb-h:         31px;
+  --gap:          8px;
+
+  --e-out:        cubic-bezier(.22,1,.36,1);
+  --e-soft:       cubic-bezier(.4,0,.2,1);
+
+  --sh-card:      0 12px 32px -18px rgba(0,0,0,.9);
+
+  --pop-bg:       rgba(22,15,52,.92);
+}

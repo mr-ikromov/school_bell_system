@@ -1,0 +1,59 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "bell",
+  "version": "0.1.0",
+  "identifier": "uz.maktab.bell",
+  "build": {
+    "frontendDist": "../src"
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [
+      {
+        "label": "main",
+        "title": "Qo'ng'iroq",
+        "width": 750,
+        "height": 480,
+        "minWidth": 750,
+        "minHeight": 480,
+        "maxWidth": 750,
+        "maxHeight": 480,
+        "resizable": false,
+        "maximizable": false,
+        "fullscreen": false,
+        "decorations": false,
+        "transparent": true,
+        "center": true,
+        "shadow": true
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; connect-src 'self' https://api.open-meteo.com; img-src 'self' asset: data:; media-src 'self' asset: data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self'"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/256x256.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "shortDescription": "Maktab qo'ng'irog'i",
+    "longDescription": "Maktablar uchun avtomatik qo'ng'iroq tizimi",
+    "linux": {
+      "deb": {
+        "depends": [
+          "libasound2"
+        ]
+      }
+    },
+    "windows": {
+      "webviewInstallMode": {
+        "type": "embedBootstrapper"
+      }
+    }
+  }
+}

@@ -1,0 +1,73 @@
+.timepick{
+  --item:27px;
+  --view:3;
+  position:relative;
+  display:flex; align-items:flex-start; gap:2px;
+  padding:2px 4px 0;
+  align-self:center;
+}
+
+.wheel{
+  position:relative;
+  width:60px;
+  height:calc(var(--item) * var(--view));
+  overflow:hidden;
+  border-radius:var(--r-md);
+  cursor:ns-resize;
+  -webkit-mask-image:linear-gradient(180deg,
+        transparent 0, #000 30%, #000 70%, transparent 100%);
+          mask-image:linear-gradient(180deg,
+        transparent 0, #000 30%, #000 70%, transparent 100%);
+  transition:background .18s var(--e-soft);
+}
+.wheel:hover{ background:rgba(255,255,255,.025); }
+.wheel:focus-visible{ box-shadow:0 0 0 2px rgba(160,107,255,.5); }
+
+.wheel__track{
+  will-change:transform;
+  transition:transform .26s var(--e-out);
+}
+.wheel.no-anim .wheel__track{ transition:none; }
+
+.wheel__item{
+  height:var(--item);
+  display:grid; place-items:center;
+  font-size:13px; font-weight:400; letter-spacing:-.6px;
+  font-variant-numeric:tabular-nums;
+  color:var(--ink-3);
+  opacity:.5;
+  transform:scale(.82);
+  transition:opacity .22s var(--e-soft), transform .26s var(--e-out), color .22s;
+}
+.wheel__item.near{ opacity:.78; transform:scale(.9); color:var(--ink-2); }
+.wheel__item.sel{
+  opacity:1; transform:scale(1);
+  font-size:20px; font-weight:500;
+  color:#fff;
+  text-shadow:0 4px 20px rgba(124,77,255,.5);
+}
+
+.timepick__colon{
+  align-self:flex-start;
+  margin-top:var(--item);
+  height:var(--item);
+  display:grid; place-items:center;
+  font-size:17px; font-weight:400;
+  color:var(--violet-3);
+  opacity:.55;
+}
+
+.timepick__mask{
+  position:absolute; inset:2px 4px 0;
+  pointer-events:none;
+}
+.timepick__mask::before{
+  content:"";
+  position:absolute; left:0; right:0;
+  top:var(--item); height:var(--item);
+  border-radius:10px;
+  border:1px solid rgba(160,107,255,.30);
+  background:linear-gradient(90deg,
+      rgba(124,77,255,.16), rgba(124,77,255,.07) 48%, rgba(124,77,255,.16));
+  box-shadow:0 8px 26px -14px var(--glow), inset 0 1px 0 rgba(255,255,255,.08);
+}

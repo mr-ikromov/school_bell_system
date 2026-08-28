@@ -1,0 +1,50 @@
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+
+html{ width:100%; height:100%; overflow:hidden; background:transparent; }
+body{
+  width:100%; height:100%;
+  overflow:hidden;
+  background:transparent;
+}
+
+body{
+
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"SF Pro Text",
+              "Segoe UI","Helvetica Neue",Roboto,sans-serif;
+  font-size:11px;
+  line-height:1.35;
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  user-select:none;
+  cursor:default;
+
+  position:relative;
+  border-radius:var(--r-win);
+  overflow:hidden;
+  display:flex; flex-direction:column;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.055);
+}
+
+body::before{
+  content:"";
+  position:absolute; inset:0; z-index:-1;
+  border-radius:inherit;
+  background:
+    radial-gradient(900px 420px at 12% -8%,  rgba(124,77,255,.20), transparent 62%),
+    radial-gradient(760px 400px at 104% 8%,  rgba(76,47,214,.20), transparent 60%),
+    radial-gradient(600px 500px at 50% 118%, rgba(160,107,255,.10), transparent 62%),
+    var(--bg-app);
+}
+
+button,input,select,textarea{ font:inherit; color:inherit; background:none; border:0; outline:none; }
+button{ cursor:pointer; }
+svg{ display:block; width:100%; height:100%; fill:none; stroke:currentColor;
+     stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+
+::selection{ background:var(--violet); color:#fff; }
+
+.tnum{ font-variant-numeric:tabular-nums; font-feature-settings:"tnum" 1; }
+
+body.is-off .app{ opacity:.45; filter:saturate(.5); transition:opacity .25s, filter .25s; }
+body .app{ transition:opacity .25s, filter .25s; }

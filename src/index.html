@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=800, initial-scale=1" />
+<title>Qo'ng'iroq</title>
+<link rel="stylesheet" href="css/theme.css" />
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/titlebar.css" />
+<link rel="stylesheet" href="css/layout.css" />
+<link rel="stylesheet" href="css/components.css" />
+<link rel="stylesheet" href="css/wheel.css" />
+</head>
+<body>
+<header class="titlebar" data-tauri-drag-region>
+  <div class="tl-lights">
+    <button class="light light--close"  data-win="close"    data-i18n-title="win.close">
+      <svg viewBox="0 0 10 10"><path d="M3 3l4 4M7 3l-4 4"/></svg>
+    </button>
+    <button class="light light--min"    data-win="minimize" data-i18n-title="win.min">
+      <svg viewBox="0 0 10 10"><path d="M2.5 5h5"/></svg>
+    </button>
+    <button class="light light--tray"   data-win="tray"     data-i18n-title="win.tray">
+      <svg viewBox="0 0 10 10"><path d="M5 1.6v4.2M3.2 4.2 5 6l1.8-1.8M2.2 7.4h5.6"/></svg>
+    </button>
+  </div>
+
+  <div class="tl-fill" data-tauri-drag-region></div>
+
+  <div class="tl-right">
+    <div class="toast" id="toast"></div>
+    <span class="tl-dot" id="tlLive"></span>
+    <button class="tl-gear" id="gearBtn" data-i18n-title="settings">
+      <svg viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="3.2"/>
+        <path d="M12 2.6v2.6M12 18.8v2.6M21.4 12h-2.6M5.2 12H2.6M18.6 5.4l-1.8 1.8M7.2 16.8l-1.8 1.8M18.6 18.6l-1.8-1.8M7.2 7.2L5.4 5.4"/>
+      </svg>
+    </button>
+
+    <div class="bt-chip" id="btChip" data-state="off">
+      <svg class="bt-ico" viewBox="0 0 24 24"><path d="M7 7l10 10-5 5V2l5 5L7 17"/></svg>
+      <span class="bt-txt">Bluetooth</span>
+    </div>
+  </div>
+</header>
+<div class="modal" id="settings" hidden>
+  <div class="modal__card" role="dialog" aria-modal="true" aria-labelledby="setTitle">
+
+    <div class="modal__head">
+      <span id="setTitle" data-i18n="settings">Sozlamalar</span>
+      <button class="modal__x" id="setClose" data-i18n-title="close">
+        <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+
+    <div class="set__grid">
+      <div class="set__row set__row--pw">
+        <span class="set__k">
+          <span class="set__b">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 3.5v7.2"/><path d="M17.6 6.6a7.5 7.5 0 1 1-11.2 0"/>
+            </svg>
+          </span>
+          <b data-i18n="settings.power">Tizim</b>
+        </span>
+        <div class="set__c">
+          <div class="segs segs--pw" id="power"></div>
+        </div>
+      </div>
+      <div class="set__row set__row--lang">
+        <span class="set__k">
+          <span class="set__b">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17"/>
+              <path d="M12 3.5c2.4 2.3 3.6 5.2 3.6 8.5S14.4 18.2 12 20.5c-2.4-2.3-3.6-5.2-3.6-8.5S9.6 5.8 12 3.5z"/>
+            </svg>
+          </span>
+          <b data-i18n="settings.lang">Til</b>
+        </span>
+        <div class="set__c">
+          <div class="segs" id="langs"></div>
+        </div>
+      </div>
+      <div class="set__row set__row--bt">
+        <span class="set__k">
+          <span class="set__b">
+            <svg viewBox="0 0 24 24"><path d="M7.5 7.8l9 8.4-4.5 4.3V3.5l4.5 4.3-9 8.4"/></svg>
+          </span>
+          <b data-i18n="settings.speaker">Bluetooth</b>
+        </span>
+        <div class="set__c">
+          <div class="sel">
+            <button class="sel__btn" id="spkBtn" aria-haspopup="listbox" aria-expanded="false">
+              <span class="sel__dot"></span>
+              <span class="sel__txt" id="spkTxt">—</span>
+              <svg class="sel__arrow" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="sel__menu" id="spkMenu" role="listbox" hidden></div>
+          </div>
+        </div>
+      </div>
+      <div class="set__row set__row--vol">
+        <span class="set__k">
+          <span class="set__b">
+            <svg viewBox="0 0 24 24">
+              <path d="M4.5 9.5v5h3.2l4.3 3.4V6.1L7.7 9.5H4.5z"/>
+              <path d="M15.4 9.4a3.6 3.6 0 0 1 0 5.2"/>
+              <path d="M18 7a7 7 0 0 1 0 10"/>
+            </svg>
+          </span>
+          <b data-i18n="settings.volume">Ovoz</b>
+        </span>
+        <div class="set__c">
+          <div class="vol">
+            <input class="vol__rng" id="volRng" type="range" min="0" max="100" step="1" value="100">
+            <span class="vol__val" id="volVal">100%</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<main class="app">
+  <section class="col col--left">
+    <div class="card hero">
+      <div class="hero__top">
+        <span class="hero__day" id="heroDay">Dushanba</span>
+        <span class="hero__date" id="heroDate">25-avgust</span>
+      </div>
+
+      <div class="hero__clock">
+        <span id="clockHM">09:41</span>
+      </div>
+
+      <div class="hero__next">
+        <div class="hero__next-l">
+          <span class="lbl" data-i18n="next">Keyingi signal</span>
+          <span class="val" id="nextTime">—</span>
+        </div>
+        <div class="hero__next-r">
+          <span class="lbl" data-i18n="left">Qolgan vaqt</span>
+          <span class="val val--accent" id="nextIn">—</span>
+        </div>
+      </div>
+    </div>
+    <div class="card list">
+      <div class="list__head">
+        <span data-i18n="schedule">Jadval</span>
+        <span class="list__count" id="listCount">0</span>
+      </div>
+      <div class="list__scroll" id="bellList"></div>
+      <button class="list__add" id="btnAdd">
+        <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+        <span data-i18n="schedule.add">Yangi qo'ng'iroq qo'shish</span>
+      </button>
+    </div>
+
+  </section>
+  <section class="col col--right">
+    <div class="card panel panel--wx">
+      <div class="wx__grid">
+        <div class="wx__i"><span class="wx__k" data-i18n="wx.feels">His qilinadi</span><span class="wx__v tnum" id="wxFeels">—</span></div>
+        <div class="wx__i"><span class="wx__k" data-i18n="wx.wind">Shamol</span>     <span class="wx__v tnum" id="wxWind">—</span></div>
+        <div class="wx__i"><span class="wx__k" data-i18n="wx.vis">Ko'rinish</span>  <span class="wx__v tnum" id="wxVis">—</span></div>
+        <div class="wx__i"><span class="wx__k" data-i18n="wx.hum">Namlik</span>     <span class="wx__v tnum" id="wxHum">—</span></div>
+        <div class="wx__i"><span class="wx__k" data-i18n="wx.pres">Bosim</span>      <span class="wx__v tnum" id="wxPres">—</span></div>
+      </div>
+
+      <div class="wx__hours" id="wxHours"></div>
+    </div>
+    <div class="card panel panel--fc">
+      <div class="wx__chart" id="wxChart"></div>
+      <div class="wx__days"  id="wxDays"></div>
+    </div>
+    <div class="card panel panel--editor">
+      <div class="panel__head">
+        <span class="panel__title" id="edTitle">Vaqt va kunlar</span>
+        <button class="panel__lock" id="edLockBtn" data-i18n-title="lock.title">
+          <svg class="ic-lock" viewBox="0 0 24 24">
+            <rect x="5" y="10.5" width="14" height="9.5" rx="2.2"/>
+            <path d="M8.2 10.5V7.8a3.8 3.8 0 0 1 7.6 0v2.7"/>
+          </svg>
+          <svg class="ic-unlock" viewBox="0 0 24 24">
+            <rect x="5" y="10.5" width="14" height="9.5" rx="2.2"/>
+            <path d="M8.2 10.5V7.8a3.8 3.8 0 0 1 7.3-1.3"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="editor">
+        <div class="timepick">
+          <div class="wheel" id="wheelH" tabindex="0"><div class="wheel__track"></div></div>
+          <div class="timepick__colon">:</div>
+          <div class="wheel" id="wheelM" tabindex="0"><div class="wheel__track"></div></div>
+          <div class="timepick__mask"></div>
+        </div>
+
+        <div class="editor__right">
+          <div class="days" id="days"></div>
+        </div>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="act act--bell" id="actBell" data-kind="bell">
+        <span class="act__ico">
+          <svg viewBox="0 0 24 24"><path d="M12 3a1.6 1.6 0 0 1 1.6 1.6v1a6.4 6.4 0 0 1 4.8 6.2v3.6l1.6 2.4v1.2H4v-1.2l1.6-2.4v-3.6a6.4 6.4 0 0 1 4.8-6.2v-1A1.6 1.6 0 0 1 12 3z"/><path d="M9.6 19a2.4 2.4 0 0 0 4.8 0"/></svg>
+        </span>
+        <span class="act__txt">
+          <b data-i18n="bell">Qo'ng'iroq</b>
+          <i class="act__file" id="actBellName" data-i18n-title="bell.swap"><span class="act__name" id="bellFileName">bell.mp3</span><svg viewBox="0 0 24 24"><path d="M4 8h13l-3-3M20 16H7l3 3"/></svg></i>
+        </span>
+        <span class="act__go">
+          <svg class="ic-play" viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z" fill="currentColor" stroke="none"/></svg>
+          <svg class="ic-stop" viewBox="0 0 24 24"><rect x="6.5" y="6.5" width="11" height="11" rx="2" fill="currentColor" stroke="none"/></svg>
+        </span>
+        <span class="act__wave"><i></i><i></i><i></i><i></i></span>
+      </button>
+
+      <button class="act act--anthem" id="actAnthem" data-kind="anthem">
+        <span class="act__ico">
+          <svg viewBox="0 0 24 24"><path d="M9 18V5l10-2v13"/><circle cx="6.5" cy="18" r="2.6"/><circle cx="16.5" cy="16" r="2.6"/></svg>
+        </span>
+        <span class="act__txt">
+          <b data-i18n="anthem">Madhiya</b>
+          <i data-i18n="anthem.sub">to'liq yangraydi</i>
+        </span>
+        <span class="act__go">
+          <svg class="ic-play" viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z" fill="currentColor" stroke="none"/></svg>
+          <svg class="ic-stop" viewBox="0 0 24 24"><rect x="6.5" y="6.5" width="11" height="11" rx="2" fill="currentColor" stroke="none"/></svg>
+        </span>
+        <span class="act__wave"><i></i><i></i><i></i><i></i></span>
+      </button>
+
+      <button class="act act--alarm" id="actAlarm" data-kind="alarm">
+        <span class="act__ico">
+          <svg viewBox="0 0 24 24"><path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17.2v.1"/></svg>
+        </span>
+        <span class="act__txt">
+          <b data-i18n="alarm">Xavf signali</b>
+          <i data-i18n="alarm.sub">takrorlanadi</i>
+        </span>
+        <span class="act__go">
+          <svg class="ic-play" viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z" fill="currentColor" stroke="none"/></svg>
+          <svg class="ic-stop" viewBox="0 0 24 24"><rect x="6.5" y="6.5" width="11" height="11" rx="2" fill="currentColor" stroke="none"/></svg>
+        </span>
+        <span class="act__wave"><i></i><i></i><i></i><i></i></span>
+      </button>
+    </div>
+
+  </section>
+</main>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
