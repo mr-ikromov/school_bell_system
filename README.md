@@ -95,10 +95,6 @@ flowchart TD
     F --> G(["✅ Signal yangraydi"])
     G --> H["⏹️ Oqim yopiladi"]
     H --> A
-    style A fill:yellow, stroke:#38e2a8, stroke-width:1px, color:#fff
-    style D fill:yellow, stroke:#38e2a8, color:#fff
-    style G fill:yellow, stroke:#38e2a8, stroke-width:1px, color:#fff
-    style H fill:yellow, stroke:#38e2a8, color:#fff
 ```
 </div>
 
