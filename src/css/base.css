@@ -7,6 +7,28 @@ body{
   background:transparent;
 }
 
+#stage{
+  position:absolute; top:50%; left:50%;
+  width:var(--stage-w); height:var(--stage-h);
+  transform:translate(-50%,-50%);
+  transform-origin:center center;
+  display:flex; flex-direction:column;
+  overflow:hidden;
+  border-radius:var(--r-win);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.055);
+}
+
+#stage::before{
+  content:"";
+  position:absolute; inset:0; z-index:-1;
+  border-radius:inherit;
+  background:
+    radial-gradient(900px 420px at 12% -8%,  rgba(124,77,255,.20), transparent 62%),
+    radial-gradient(760px 400px at 104% 8%,  rgba(76,47,214,.20), transparent 60%),
+    radial-gradient(600px 500px at 50% 118%, rgba(160,107,255,.10), transparent 62%),
+    var(--bg-app);
+}
+
 body{
   font-family:system-ui,-apple-system,BlinkMacSystemFont,"SF Pro Text",  "Segoe UI","Helvetica Neue",Roboto,sans-serif;
   font-size:11px;
@@ -17,24 +39,9 @@ body{
   user-select:none;
   cursor:default;
   position:relative;
-  border-radius:var(--r-win);
-  overflow:hidden;
-  display:flex; flex-direction:column;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.055);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-}
-
-body::before{
-  content:"";
-  position:absolute; inset:0; z-index:-1;
-  border-radius:inherit;
-  background:
-    radial-gradient(900px 420px at 12% -8%,  rgba(124,77,255,.20), transparent 62%),
-    radial-gradient(760px 400px at 104% 8%,  rgba(76,47,214,.20), transparent 60%),
-    radial-gradient(600px 500px at 50% 118%, rgba(160,107,255,.10), transparent 62%),
-    var(--bg-app);
 }
 
 button,input,select,textarea{ font:inherit; color:inherit; background:none; border:0; outline:none; }

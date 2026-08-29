@@ -397,7 +397,8 @@
 .toast[data-t="danger"]::before{ background:var(--danger); box-shadow:0 0 7px var(--danger); }
 
 .modal{
-  position:fixed; inset:0; z-index:70;
+  position:absolute; inset:0; z-index:70;
+  border-radius:var(--r-win);
   display:grid; place-items:center;
   padding:16px;
   background:rgba(6,4,16,.62);

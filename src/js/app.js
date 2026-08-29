@@ -23,6 +23,15 @@ const S = {
 
 let wheelH, wheelM;
 
+const STAGE_W = 780, STAGE_H = 560;
+function fitStage() {
+  const el = document.getElementById('stage');
+  if (!el) return;
+  const k = Math.min(window.innerWidth / STAGE_W, window.innerHeight / STAGE_H);
+  el.style.transform = 'translate(-50%,-50%)' +
+    (Math.abs(k - 1) < 0.004 ? '' : ` scale(${k.toFixed(4)})`);
+}
+
 (async function init() {
   const raw  = (await be.loadSchedule()) || [];
   S.schedule = dedupe(raw);
@@ -32,6 +41,9 @@ let wheelH, wheelM;
   snd.onStateChange(paintActionState);
 
   i18n.setLang(S.settings.language || 'uz');
+
+  fitStage();
+  window.addEventListener('resize', fitStage);
 
   warmFonts();
   buildWheels();

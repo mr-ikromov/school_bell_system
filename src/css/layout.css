@@ -103,7 +103,7 @@
 
 .panel--fc{ padding:5px 12px 6px; gap:1px; }
 
-.wx__chart{ flex:1 1 auto; min-height:0; }
+.wx__chart{ flex:0 0 auto; height:100px; }
 .wx__chart svg{ display:block; overflow:visible; }
 .wxc__line{
   fill:none; stroke:var(--violet-2); stroke-width:1.8;
@@ -124,7 +124,7 @@
 }
 
 .wx__days{
-  flex:0 0 auto;
+  flex:0 0 auto; margin-top:auto;
   display:grid; grid-template-columns:repeat(7,1fr);
   gap:3px;
   padding-top:5px;

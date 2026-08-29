@@ -12,19 +12,15 @@
       {
         "label": "main",
         "title": "Qo'ng'iroq",
-        "width": 750,
-        "height": 480,
-        "minWidth": 750,
-        "minHeight": 480,
-        "maxWidth": 750,
-        "maxHeight": 480,
+        "width": 780,
+        "height": 560,
         "resizable": false,
         "maximizable": false,
         "fullscreen": false,
         "decorations": false,
         "transparent": true,
         "center": true,
-        "shadow": true
+        "shadow": false
       }
     ],
     "security": {
