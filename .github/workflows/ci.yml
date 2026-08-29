@@ -21,6 +21,7 @@ jobs:
   tekshiruv:
     name: Format va Lint
     runs-on: ubuntu-22.04
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v7
       - name: Tizim kutubxonalari
@@ -45,29 +46,32 @@ jobs:
   platformalar:
     name: ${{ matrix.nom }}
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
     strategy:
       fail-fast: false
       matrix:
         include:
-          - { os: windows-latest, nom: 'Windows kodi' }
-          - { os: macos-latest,   nom: 'macOS kodi (Apple Silicon)' }
-          - { os: macos-13,       nom: 'macOS kodi (Intel)' }
+          - { os: windows-latest, nom: 'Windows kodi',               target: '' }
+          - { os: macos-latest,   nom: 'macOS kodi (Apple Silicon)', target: 'aarch64-apple-darwin' }
+          - { os: macos-latest,   nom: 'macOS kodi (Intel)',         target: 'x86_64-apple-darwin' }
     steps:
       - uses: actions/checkout@v7
       - uses: dtolnay/rust-toolchain@stable
         with:
           components: clippy
+          targets: ${{ matrix.target }}
       - uses: Swatinem/rust-cache@v2
         with:
           workspaces: src-tauri
-          key: ${{ matrix.os }}
+          key: ${{ matrix.os }}-${{ matrix.target }}
       - name: Clippy
         working-directory: src-tauri
-        run: cargo clippy --all-targets -- -D warnings
+        run: cargo clippy --all-targets ${{ matrix.target && format('--target {0}', matrix.target) || '' }} -- -D warnings
 
   frontend:
     name: Frontend tekshiruvi
     runs-on: ubuntu-22.04
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v7
       - name: JS sintaksisi

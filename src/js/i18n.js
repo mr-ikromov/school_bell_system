@@ -62,7 +62,6 @@ const DICT = {
     'err.unsupported-format': "Qo'llab-quvvatlanmaydigan format",
     'err.undecodable':  "Fayl ochilmadi — ovoz fayli buzuq bo'lishi mumkin",
     'err.too-short':    'Fayl juda qisqa yoki bo\'sh',
-    'err.no-backend':   'Rust (Tauri) bosqichida ulanadi',
   },
 
   en: {
@@ -122,7 +121,6 @@ const DICT = {
     'err.unsupported-format': 'Unsupported format',
     'err.undecodable':  'Cannot read the file — it may be corrupted',
     'err.too-short':    'The file is too short or empty',
-    'err.no-backend':   'Available once the Rust (Tauri) core is connected',
   },
 
   ru: {
@@ -182,7 +180,6 @@ const DICT = {
     'err.unsupported-format': 'Неподдерживаемый формат',
     'err.undecodable':  'Файл не открылся — возможно, он повреждён',
     'err.too-short':    'Файл слишком короткий или пустой',
-    'err.no-backend':   'Появится после подключения ядра Rust (Tauri)',
   },
 };
 

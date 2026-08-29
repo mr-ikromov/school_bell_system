@@ -3,7 +3,6 @@ import * as i18n from './i18n.js';
 import { t, dayShort, dayFull, dateText, humanLeft } from './i18n.js';
 import { createWheel } from './wheel.js';
 import * as be from './backend.js';
-import * as snd from './audio.js';
 import * as wx from './weather.js';
 
 const TRASH = '<svg viewBox="0 0 24 24"><path d="M4 7h16M9 7V5h6v2M6 7l1 13h10l1-13"/></svg>';
@@ -16,7 +15,6 @@ const S = {
   settings: { ...DEFAULT_SETTINGS },
   viewId: null,
   locked: true,
-  lastFired: '',
   bt: null,
   quiet: false,
 };
@@ -37,9 +35,6 @@ function fitStage() {
   S.schedule = dedupe(raw);
   const dropped = raw.length - S.schedule.length;
   S.settings = { ...DEFAULT_SETTINGS, ...((await be.loadSettings()) || {}) };
-  snd.setVolume(S.settings.volume);
-  snd.onStateChange(paintActionState);
-
   i18n.setLang(S.settings.language || 'uz');
 
   fitStage();
@@ -139,8 +134,6 @@ function applyTime() {
 }
 
 function bindBackendEvents() {
-  if (!be.hasBackend()) return;
-
   be.on('bell-ring', p => toast('🔔 ' + (p.label || p.time)));
 
   be.on('sound-state', p => paintActionState(p.kind, p.playing));
@@ -155,13 +148,9 @@ function bindBackendEvents() {
 }
 
 function bindTitlebar() {
-  $$('.light').forEach(b => b.addEventListener('click', async () => {
-    const ok = await be.win(b.dataset.win);
-    if (!ok) toast(i18n.tErr('no-backend'), 'warn');
-  }));
+  $$('.light').forEach(b => b.addEventListener('click', () => be.win(b.dataset.win)));
 
   pollBt();
-  if (!be.hasBackend()) setInterval(pollBt, 5000);
 }
 
 async function pollBt() {
@@ -368,7 +357,6 @@ async function setPower(on) {
 function setVolume(pct) {
   put($('#volVal'), pct + '%');
   S.settings.volume = pct / 100;
-  snd.setVolume(S.settings.volume);
   be.setVolume(S.settings.volume);
 }
 
@@ -559,14 +547,12 @@ function bindActions() {
 
       if (S.settings.enabled === false) return toast(t('power.warn'), 'warn');
 
-      if (be.hasBackend()) be.soundToggle(kind);
-      else snd.toggle(kind);
+      be.soundToggle(kind);
     });
   });
 
   $('#actBellName').addEventListener('click', async e => {
     e.stopPropagation();
-    if (!be.hasBackend()) return toast(i18n.tErr('no-backend'), 'warn');
 
     let f;
     try {
@@ -579,7 +565,6 @@ function bindActions() {
     if (!f) return;
 
     S.settings.bellFile = f;
-    snd.setBellFile(f);
     setBellName(f);
     persist();
     toast(`${t('bell')}: ${f}`);
@@ -592,9 +577,11 @@ function setBellName(f) {
   put($('#bellFileName'), String(f || '').split(/[\\/]/).pop());
 }
 
+const playing = new Set();
 function paintActionState(kind, on) {
+  on ? playing.add(kind) : playing.delete(kind);
   $(`.act[data-kind="${kind}"]`)?.classList.toggle('is-playing', on);
-  $('#tlLive').dataset.state = snd.anyPlaying() ? 'ring' : '';
+  $('#tlLive').dataset.state = playing.size ? 'ring' : '';
 }
 
 function renderAll() { renderList(); }
@@ -711,24 +698,9 @@ function tick() {
   if (now.getMinutes() !== lastMin) {
     lastMin = now.getMinutes();
     refreshFlags();
-
-    if (!be.hasBackend()) fireDue(now);
   }
 }
 
-function fireDue(now) {
-  const key = `${now.toDateString()} ${now.getHours()}:${now.getMinutes()}`;
-  if (S.lastFired === key) return;
-
-  const d = isoDay(now);
-  const due = S.schedule.find(b => b.enabled && b.days.includes(d) &&
-                                   b.hour === now.getHours() && b.minute === now.getMinutes());
-  if (!due) return;
-
-  S.lastFired = key;
-  snd.ringBell();
-  toast('🔔 ' + (due.label || fmt(due)));
-}
 
 let saveTimer;
 function persist() {

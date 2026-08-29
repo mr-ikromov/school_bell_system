@@ -19,18 +19,22 @@ jobs:
   qurish:
     name: ${{ matrix.nom }}
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 60
     strategy:
       fail-fast: false
       matrix:
         include:
           - os: ubuntu-22.04
             nom: 'Linux (x86_64)'
+            artefakt: 'bell-linux'
             target: ''
           - os: windows-latest
             nom: 'Windows (x86_64)'
+            artefakt: 'bell-windows'
             target: ''
           - os: macos-latest
             nom: 'macOS (Universal)'
+            artefakt: 'bell-macos'
             target: 'universal-apple-darwin'
 
     steps:
@@ -62,7 +66,7 @@ jobs:
       - name: Artefaktlar
         uses: actions/upload-artifact@v7
         with:
-          name: bell-${{ matrix.os }}${{ matrix.target && format('-{0}', matrix.target) || '' }}
+          name: ${{ matrix.artefakt }}
           if-no-files-found: error
           retention-days: 14
           path: |
@@ -77,6 +81,7 @@ jobs:
     needs: qurish
     if: startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     permissions:
       contents: write
     steps:
