@@ -225,7 +225,7 @@ Administrator qulfni ochib vaqtni o‘zgartiradi.
 <td align="center">kerak emas</td>
 </tr>
 <tr>
-<td align="center">🪟 &nbsp; Windows</td>
+<td align="center">💠 Windows</td>
 <td align="center"><code>SetThreadExecutionState</code></td>
 <td align="center">kerak emas</td>
 </tr>
@@ -251,7 +251,7 @@ standart til
 </td>
 <td width="34%" align="center">
 
-# 🇬🇧
+# 🇺🇸
 
 **English**
 
