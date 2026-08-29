@@ -258,6 +258,7 @@ Administrator qulfni ochib vaqtni o‘zgartiradi.
 **O‘zbek**
 
 standart til
+<img src=".github/assets/spacer.png" width="528" height="1">
 </td>
 <td width="34%" align="center">
 
@@ -266,7 +267,7 @@ standart til
 **English**
 
 to‘liq tarjima
-
+<img src=".github/assets/spacer.png" width="528" height="1">
 </td>
 <td width="33%" align="center">
 
