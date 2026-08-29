@@ -134,8 +134,6 @@ flowchart LR
     O --> C["⠀⠀Uyqu blok  olinadi⠀⠀"]
     O --> D["⠀Kompyuter odatdagi<br/>ovoz holatiga qaytadi⠀"]
     O --> E["Jadval bazada saqlanadi"]
-    style O fill:yellow, stroke:#38e2a8, stroke-width:1px,color:#fff
-    style E fill:orange, stroke:pink, color:#fff
 ```
 </div>
 
