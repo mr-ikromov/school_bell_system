@@ -47,7 +47,7 @@ o‘z vaqtida chalinadi.
 </td>
 <td width="25%" align="center">
 
-### 🪶
+### 📌
 
 **Yengil**
 
