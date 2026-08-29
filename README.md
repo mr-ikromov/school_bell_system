@@ -74,11 +74,6 @@ flowchart LR
     M["⠀🎵 Madhiya⠀⠀"] --> KU
     X["🚨 Xavf signali⠀"] --> KU
     KU --> MK["🏫 Butun maktab"]
-
-    style IC fill:yellow, stroke:#38e2a8, stroke-width:2px,color:black;
-    style AD fill:pink, stroke:#60b2ff, color:#fff
-    style KU fill:yellow, stroke:#38e2a8, stroke-width:3px,color:#fff
-    style MK fill:pink ,stroke:#38e2a8, stroke-width:2px,color:#fff
 ```
 
 </div>
