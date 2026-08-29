@@ -425,3 +425,7 @@ belgilang
 <td align="center">IOKit</td>
 </tr>
 </table>
+
+---
+
+<img width="100%" height="100%" alt="Image" src="https://github.com/user-attachments/assets/5b7a2d58-b840-4c98-81ae-82e21b624344" />
