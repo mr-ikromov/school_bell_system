@@ -251,7 +251,7 @@ standart til
 </td>
 <td width="34%" align="center">
 
-# 🇺🇸
+# EN
 
 **English**
 
@@ -278,7 +278,7 @@ to‘liq tarjima
 <th width="50%" align="center">Tizim<img src=".github/assets/spacer.png" width="800" height="1"></th>
 <th width="50%" align="center">Fayl<img src=".github/assets/spacer.png" width="800" height="1"></th>
 </tr>
-<tr><td align="center">🪟 &nbsp; <b>Windows</b></td><td align="center"><code>.msi</code> yoki <code>.exe</code></td></tr>
+<tr><td align="center">💠 <b>Windows</b></td><td align="center"><code>.msi</code> yoki <code>.exe</code></td></tr>
 <tr><td align="center">🍏 &nbsp; <b>macOS</b> — Intel va Apple Silicon</td><td align="center"><code>.dmg</code> — universal</td></tr>
 <tr><td align="center">🐧 &nbsp; <b>Debian · Ubuntu</b></td><td align="center"><code>.deb</code></td></tr>
 <tr><td align="center">🐧 &nbsp; <b>Fedora · openSUSE</b></td><td align="center"><code>.rpm</code></td></tr>
@@ -404,7 +404,7 @@ belgilang
 <td align="center"><code>systemd-inhibit</code></td>
 </tr>
 <tr>
-<td align="center">🪟 &nbsp; <b>Windows</b></td>
+<td align="center">💠 <b>Windows</b></td>
 <td align="center"><code>IPolicyConfig</code> + WASAPI</td>
 <td align="center"><code>SetThreadExecutionState</code></td>
 </tr>
